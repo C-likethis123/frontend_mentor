@@ -1,0 +1,62 @@
+body {
+    background-color: hsl(47, 88%, 63%);
+    font-family: "Figtree", Arial, Helvetica, sans-serif;
+    padding-top: 100px;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.main-content {
+    background-color: hsl(0, 0%, 100%);
+    border: 2px solid black;
+    border-radius: 20px;
+    box-shadow: 8px 8px black;
+    width: 500px;
+    margin: 0 auto;
+    padding: 24px;
+
+}
+
+div.main-image > img {
+    border-radius: 10px;
+    width: 100%;
+    margin-bottom: 24px;
+}
+
+.tag {
+    background-color: hsl(47, 88%, 63%);
+    font-weight: 900;
+    border-radius: 10px;
+    padding: 10px;
+    width: fit-content;
+    margin-bottom: 24px;
+}
+
+.date {
+    color: hsl(0, 0%, 7%);
+}
+
+p {
+    color: hsl(0, 0%, 42%);
+    line-height: 24px;
+}
+
+h2:hover {
+    color: hsl(47, 88%, 63%);
+    cursor: pointer;
+}
+
+div.profile {
+    display: flex;
+}
+
+.profile-name {
+    font-weight: 900;
+    align-content: center;
+}
+
+div.profile > img {
+    width: 32px;
+    height: 32px;
+    margin-right: 1rem;
+}
