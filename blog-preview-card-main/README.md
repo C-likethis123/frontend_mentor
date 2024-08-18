@@ -33,7 +33,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: https://github.com/C-likethis123/frontend_mentor/blog-preview-card-main
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: https://c-likethis123.github.io/frontend_mentor/blog-preview-card-main/index.html
 
 ## My process
 
