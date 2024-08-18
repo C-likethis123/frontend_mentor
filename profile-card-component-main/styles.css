@@ -1,0 +1,81 @@
+
+:root {
+    --main-bg-color: hsl(185, 75%, 39%);
+}
+
+/* todo: background image changes with different screen sizes */
+body {
+    font-family: "Kumbh Sans", sans-serif;
+    font-optical-sizing: auto;
+    background-repeat: no-repeat;
+    background-image: url("images/bg-pattern-top.svg"), url("images/bg-pattern-bottom.svg");
+    background-position: 0% 50%, 100% -50%;
+    background-attachment: scroll;
+    background-color: var(--main-bg-color);
+    padding: 200px 24px;
+    font-size: 18px;
+}
+
+/* why does auto margin adjust horizontal position but not vertical position ?*/
+.card {
+    border-radius: 20px;
+    height: 300px;
+    width: 300px;
+    background-color: white;
+    margin: 0 auto;
+}
+
+.card-header {
+    background-image: url("images/bg-pattern-card.svg");
+    background-size:contain;
+    height: 100px;
+    border-radius: 20px 20px 0 0;
+}
+
+img {
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.profile-name {
+    display: flex;
+}
+
+.name {
+    color: hsl(229, 23%, 23%);
+    font-weight: 700;
+}
+
+.age {
+    font-weight: 400;
+    color: hsl(227, 10%, 46%);
+}
+
+.country {
+    color: hsl(227, 10%, 46%); 
+}
+
+.divider {
+    border: 0.5px solid hsl(0, 0%, 59%);
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+}
+
+.stat-item {
+    padding: 0px 16px;
+}
+
+.stat-number {
+    font-weight: 700;
+}
+
+.stat-unit {
+    font-weight: 400;
+    font-size: 12px;
+    color: hsl(0, 0%, 59%);
+    letter-spacing: 2px;
+}
