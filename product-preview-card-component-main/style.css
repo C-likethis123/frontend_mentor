@@ -1,0 +1,120 @@
+/* 
+
+General todo: how to organise CSS code? After all I'm not in a framework
+I struggle with: images, and also images in responsive styling
+*/
+
+/* Typography */
+* {
+    --bold: 700;
+    --normal: 500;
+}
+
+/* Colours */
+* {
+    --main-bg-colour: hsl(30, 38%, 92%);
+    --primary-colour: hsl(158, 36%, 37%);
+    --secondary-bg-colour: hsl(0, 0%, 100%);
+    --neutral-text-colour: hsl(228, 12%, 48%);
+    --color:  hsl(229, 23%, 23%);
+}
+
+/* Typography styles */
+* {
+    font-weight: var(--normal);
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+}
+h1 {
+    font-weight: var(--bold);
+    font-family: "Fraunces", serif;
+}
+
+p {
+    font-size: 0.875rem;
+    color: var(--neutral-text-colour);
+    line-height: 1.5rem;
+}
+
+button {
+    color: var(--secondary-bg-colour);
+}
+
+.primary-text {
+    color: var(--primary-colour);
+    font-weight: var(--bold);
+    font-size: 2rem;
+    margin-right: 20px;
+    font-family: "Fraunces", serif;
+}
+
+#old-price {
+    text-decoration: line-through;
+    color: var(--neutral-text-colour);
+}
+
+#perfume {
+    color: var(--neutral-text-colour);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Layout */
+body {
+    background-color: var(--main-bg-colour);
+}
+main {
+    display: flex;
+    margin: 0 auto; /* todo: what makes margin: 0 auto work? why doesn't it work in some cases? */
+}
+
+div[id="hero-img"] {
+    /* hardcode width and height to reserve space for image */
+    /* TODO: why is it that when i set height to fit-content, it doesn't work? seems that i need to hardcode it */
+    /* TODO: setting border radius in main does not work */
+    width: 400px;
+    height: 600px;
+    background-image: url("images/image-product-desktop.jpg");
+    background-size: contain;
+    border-radius: 10px 0 0 10px;
+}
+
+div[id="content"] {
+    background-color: var(--secondary-bg-colour);
+    border-radius: 0 10px 10px 0;
+    padding: 25px;
+    box-sizing: border-box;
+}
+
+div[id="prices"] {
+    display: flex;
+    align-items: center;
+}
+
+button {
+    background-color: var(--primary-colour);
+    border: none;
+    border-radius: 10px;
+    padding: 15px 30px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center; /* TODO: most of the time i keep forgetting flexbox's align items vs content, and the other properties etc */
+}
+
+button > img {
+    margin-right: 10px;
+}
+
+/* Responsive styling */
+@media screen and (max-width: 375px) {
+    div[id="hero-img"] {
+        background-image: url("images/image-product-mobile.jpg");
+        border-radius: 10px 0 0 10px;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    main {
+        flex-direction: column;
+    }
+}
