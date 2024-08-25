@@ -1,81 +1,107 @@
 
 :root {
     --main-bg-color: hsl(185, 75%, 39%);
+    
+    --clr-neutral: hsl(0, 0%, 59%);
+    --clr-text:hsl(227, 10%, 46%);
+    --clr-bold: hsl(229, 23%, 23%);
+    --font-regular: 400;
+    --font-bold: 700;
+}
+
+/* Base Typography */
+body {
+    font-family: "Kumbh Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: var(--font-regular);
+    color: var(--clr-text);
+    font-size: 1.125rem;
+}
+/* Utility classes */
+.hidden {
+    display: none;
 }
 
 /* todo: background image changes with different screen sizes */
 body {
-    font-family: "Kumbh Sans", sans-serif;
-    font-optical-sizing: auto;
-    background-repeat: no-repeat;
-    background-image: url("images/bg-pattern-top.svg"), url("images/bg-pattern-bottom.svg");
-    background-position: 0% 50%, 100% -50%;
-    background-attachment: scroll;
+    background-image: url("images/bg-pattern-top.svg"), url("images/bg-pattern-top.svg");
+    background-repeat: no-repeat, no-repeat;
+    background-position: 125% 200%, -25% -100%;
+    background-size: auto, auto;
     background-color: var(--main-bg-color);
-    padding: 200px 24px;
-    font-size: 18px;
+
+    /* Centers items */
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
 }
 
 /* why does auto margin adjust horizontal position but not vertical position ?*/
 .card {
     border-radius: 20px;
-    height: 300px;
-    width: 300px;
-    background-color: white;
-    margin: 0 auto;
+    background-color:  white;
+    overflow: hidden;
 }
 
-.card-header {
-    background-image: url("images/bg-pattern-card.svg");
-    background-size:contain;
-    height: 100px;
-    border-radius: 20px 20px 0 0;
+.profile {
+    text-align: center;
+    background-image: url("images/bg-pattern-card.svg"), linear-gradient(to bottom, white 50%, white 50%);
+    min-height: 280px;
+    background-repeat: no-repeat, no-repeat;
+    background-size: 100% 50%, 100% 100%;
+    background-position: top, top;
+    position: relative;
 }
-
+/* centers image at the "half" of the background: https://stackoverflow.com/questions/11160227/translate-x-and-y-percentage-values-based-on-elements-height-and-width */
 img {
     border-radius: 50%;
-    border: 2px solid white;
+    border: 6px solid white;
+    display: block;
+    margin: auto;
+    margin-bottom: 16px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); 
 }
 
-.profile-name {
-    display: flex;
+.content {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .name {
     color: hsl(229, 23%, 23%);
-    font-weight: 700;
-}
-
-.age {
-    font-weight: 400;
-    color: hsl(227, 10%, 46%);
+    font-weight: var(--font-bold);
 }
 
 .country {
-    color: hsl(227, 10%, 46%); 
-}
-
-.divider {
-    border: 0.5px solid hsl(0, 0%, 59%);
+    font-size: 0.875rem;
 }
 
 .stats {
     display: flex;
     justify-content: space-between;
     padding: 16px;
+    border-top: 0.5px solid var(--clr-neutral);
 }
 
 .stat-item {
+    display: flex;
+    flex-direction: column;
     padding: 0px 16px;
+    text-align: center;
 }
 
 .stat-number {
-    font-weight: 700;
+    font-weight: var(--font-bold);
+    color: var(--clr-bold);
 }
 
 .stat-unit {
-    font-weight: 400;
-    font-size: 12px;
-    color: hsl(0, 0%, 59%);
+    font-size: 0.625rem;
+    color: var(--clr-neutral);
     letter-spacing: 2px;
 }

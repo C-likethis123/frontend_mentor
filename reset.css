@@ -1,0 +1,99 @@
+/* CSS Reset */
+
+/*
+  1. Use a more-intuitive box-sizing model.
+  Side note: contrary to popular belief, this is not bad for performance
+  If migrating from a large project, we can use `box-sizing: inherit`
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/*
+    2. Remove default margin
+  */
+* {
+  margin: 0;
+}
+
+/*
+    Typographic tweaks!
+    3. Add accessible line-height 
+    - the default tends to be 1.2, but for those who are dyslexic, the lines are packed too closely together.
+    - override this value on headings as it's too large for headings
+    - there's also a thing about line heights: using the font size as a base, and adds a fixed amount of space to each line.
+    4. Improve text rendering
+    - on macOS, the browser will use subpixel antialiasing. It aims to make text easier to read and improved text contrast.
+    - but on modern hardware, subpixel antialiasing was doing more harm than good.
+    - MacOS browsers still use subpixel antialiasing by default, so we need to turn it off
+  */
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/*
+    5. Improve media defaults
+    Images are considered inline elements, that implies they should be used in the middle of paragraphs.
+    But most of the time we treat them as layout elements.
+    If we use it as an inline element, there are weird things that happen like adding a 4px gap.
+
+    Set max-width: 100% to keep large images from overflowing their container.
+    Most block level elements grow/shrink to fix their parent. But media elements are known as replaced elements, and they don't follow the same rules. It will retain its original dimensions even when placed in a smaller container.
+  */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/*
+    6. Remove built-in form typography styles
+    By default, buttons and inputs don't inherit typographical styles from their parents, but have their own styles
+    In mobile, it will result in autozoom behaviour. To avoid this behaviour, the inputs need to have a font-size of at least 1rem/16px.
+    By setting it to inherit, we instruct these elements to match the typography in their surrounding environments
+  */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/*
+    7. Avoid text overflows
+    By default, the algorithm will look for soft-wrap opportunities - whitespace and hyphens.
+    If a line does not have soft wrap, and it doesn't fit, it will cause the text to overflow.
+    Breaks word when no softwrap opportunities can be found
+  */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.1;
+  /* set smaller line heights for titles */
+}
+
+/*
+    8. Create a root stacking context 
+    Only needed for JS frameworks - the isolation property allows us to create a new stacking context without needing to set a z-index
+    Allows us to guarantee certain high-priority elements will always show up above other elements in our application.
+  */
+#root,
+#__next {
+  isolation: isolate;
+}
