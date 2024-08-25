@@ -1,0 +1,245 @@
+/* Custom Properties - colours and typography from the style guide*/
+:root {
+    --bg-blue: hsl(241, 81%, 54%);
+    --cobalt-blue: hsl(234, 85%, 45%);
+    --pale-blue: hsl(221, 100%, 96%);
+    --text-gray: hsl(224, 30%, 27%);
+    --violet-blue: hsl(252, 100%, 67%);
+    --violet-blue-dark: hsl(252, 100%, 60%);
+    --royal-blue: hsl(241, 81%, 54%);
+
+    --bg-white: hsl(0, 0%, 100%);
+
+
+    --light-red: hsl(0, 100%, 67%);
+    --bg-red: hsla(0, 100%, 67%, 0.1);
+    --light-yellow: hsl(39, 100%, 56%);
+    --bg-yellow:hsla(39, 100%, 56%, 0.1); 
+    --light-green: hsl(166, 100%, 37%);
+    --bg-green:  hsla(166, 100%, 37%, 0.1);
+    --light-lavender: hsl(241, 100%, 89%);
+    --bg-lavender: hsla(241, 100%, 89%, 0.1); 
+
+    --font-regular: 500;
+    --font-bold: 700;
+    --font-extra-bold: 800;
+
+    --ff-base: 'Hanken Grotesk', sans-serif;
+}
+
+/* CSS Reset */
+
+/*
+    1. Use a more-intuitive box-sizing model.
+    Side note: contrary to popular belief, this is not bad for performance
+    If migrating from a large project, we can use `box-sizing: inherit`
+  */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/*
+      2. Remove default margin
+    */
+* {
+    margin: 0;
+}
+
+/*
+      Typographic tweaks!
+      3. Add accessible line-height 
+      - the default tends to be 1.2, but for those who are dyslexic, the lines are packed too closely together.
+      - override this value on headings as it's too large for headings
+      - there's also a thing about line heights: using the font size as a base, and adds a fixed amount of space to each line.
+      4. Improve text rendering
+      - on macOS, the browser will use subpixel antialiasing. It aims to make text easier to read and improved text contrast.
+      - but on modern hardware, subpixel antialiasing was doing more harm than good.
+      - MacOS browsers still use subpixel antialiasing by default, so we need to turn it off
+    */
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+/*
+      5. Improve media defaults
+      Images are considered inline elements, that implies they should be used in the middle of paragraphs.
+      But most of the time we treat them as layout elements.
+      If we use it as an inline element, there are weird things that happen like adding a 4px gap.
+  
+      Set max-width: 100% to keep large images from overflowing their container.
+      Most block level elements grow/shrink to fix their parent. But media elements are known as replaced elements, and they don't follow the same rules. It will retain its original dimensions even when placed in a smaller container.
+    */
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+/*
+      6. Remove built-in form typography styles
+      By default, buttons and inputs don't inherit typographical styles from their parents, but have their own styles
+      In mobile, it will result in autozoom behaviour. To avoid this behaviour, the inputs need to have a font-size of at least 1rem/16px.
+      By setting it to inherit, we instruct these elements to match the typography in their surrounding environments
+    */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/*
+      7. Avoid text overflows
+      By default, the algorithm will look for soft-wrap opportunities - whitespace and hyphens.
+      If a line does not have soft wrap, and it doesn't fit, it will cause the text to overflow.
+      Breaks word when no softwrap opportunities can be found
+    */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1.1;
+    /* set smaller line heights for titles */
+}
+
+/*
+      8. Create a root stacking context 
+      Only needed for JS frameworks - the isolation property allows us to create a new stacking context without needing to set a z-index
+      Allows us to guarantee certain high-priority elements will always show up above other elements in our application.
+    */
+#root,
+#__next {
+    isolation: isolate;
+}
+
+/* General styles */
+/* TIL vscode auto wraps var() to custom variables */
+body {
+    font-family: var(--ff-base);
+    font-weight: var(--font-regular);
+    font-size: 1.125rem;
+    background-color: var(--bg-white);
+
+    /* for this project */
+    display: grid;
+    place-content: center;
+    /* what is this? maybe this has to do with CSS Grid */
+    min-height: 100vh;
+    /* put if it does not help to center the item in the middle */
+}
+
+h2,
+h3,
+p,
+button {
+    font-size: 1.125rem;
+}
+
+.card__result {
+    background-color: var(--violet-blue);
+    color: var(--text-gray);
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    border-radius: 0 0 2rem 2rem;
+}
+
+.results {
+    border-radius: 50%;
+    background-color: var(--violet-blue-dark);
+    padding: 1rem 4rem;
+    height: 50%;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.result-score {
+    font-size: 3.5rem;
+    color: var(--bg-white);
+    font-weight: var(--font-extra-bold);
+}
+
+.card__summary {
+    display: grid;
+    padding: 2rem;
+    gap: 1rem;
+}
+
+ul {
+    padding: 0;
+}
+
+li.result-item {
+    display: flex;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    align-items: center;
+    border-radius: 15px;
+}
+li.result-item img {
+    margin-right: 1rem;
+}
+li.result-item.red {
+    color: var(--light-red);
+    background-color: var(--bg-red);
+}
+li.result-item.yellow {
+    color: var(--light-yellow);
+    background-color: var(--bg-yellow);
+}
+li.result-item.green {
+    color: var(--light-green);
+    background-color: var(--bg-green);
+}
+li.result-item.blue {
+    color: var(--cobalt-blue);
+    background-color: var(--bg-lavender);
+}
+li.result-item .score {
+    margin-left: auto;
+    color: var(--text-gray);
+}
+li.result-item .score .score-numerator {
+    font-weight: var(--font-bold);
+}
+
+
+button {
+    border-radius: 2rem;
+    background-color: var(--text-gray);
+    color: var(--bg-white);
+    padding: 1rem 0.5rem;
+    font-weight: var(--font-bold);
+}
+
+/* Responsive Styling */
+@media screen and (min-width: 600px) {
+    main {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        max-width: 800px;
+    }
+    .card__result {
+        border-radius: 2rem;
+    }
+}
